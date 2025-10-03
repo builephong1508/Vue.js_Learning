@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+</head>
+
+<body>
+  <div class="container">
+    <h1>VueJS - Chapter 1</h1>
+    <section id="interpolation" class="bg-dark p-3 rounded text-center text-light m-3">
+      <h2>Interpolation</h2>
+      <p>Họ và tên : {{ hoTen }}</p>
+      <p>Quê quán : {{ queQuan }}</p>
+    </section>
+
+    <section id="binding" class="bg-dark p-3 rounded text-center text-light m-3">
+      <h2>Binding Attributes</h2>
+      <img v-bind:src="linkImg" alt="Ảnh lỗi" class="img-thumbnail m-3" />
+      <br />
+      <a v-bind:href="moreDetail" class="btn btn-info">Thông tin thêm</a>
+    </section>
+
+    <section id="methods" class="bg-dark p-3 rounded text-center text-light m-3">
+      <h2>Methods</h2>
+      <p>Chẵn hoặc Lẻ : {{ result }} {{ getRandomNumber() }}</p>
+      <button class="btn btn-info" @click="renderChanLe()">
+        Chơi đi bro
+      </button>
+    </section>
+
+    <section id="raw-html" class="bg-dark p-3 rounded text-center text-light m-3">
+      <h2>Raw HTML</h2>
+      <div v-html="htmlString">
+      </div>
+    </section>
+
+    <section id="event-handling" class="bg-dark p-3 rounded text-center text-light m-3">
+      <h2>Event Handling</h2>
+      <button class="btn btn-warning m-3" @click="clickButton()">Click here, bro</button>
+      <p> {{ text }} </p>
+    </section>
+
+    <section id="counting" class="bg-dark p-3 rounded text-center text-light m-3">
+      <h2>Count</h2>
+      <button class="btn btn-success m-3" @click="increase()">Increase the number</button>
+      <button class="btn btn-danger m-3" @click="decrease()">Decrease the number</button>
+
+      <!-- nếu hàm chỉ có 1 lệnh duy nhất thì có thể viết như thế này được -->
+      <button class="btn btn-info m-3" @click="number += 10000">Tăng lên 10.000</button>
+      <p> {{ number }} </p>
+
+      <!-- v-once giúp cho hiển thị lên màn hình lần đầu, những lần sau khi giá trị tăng thì nó cũng không thay đổi -->
+      <p v-once> giá trị này chỉ xuất ra lần đầu (v-once): {{ number }} </p>
+
+      <button class="btn btn-danger m-3" v-on:click="handleClick($event)">Thông tin bên trong HTML</button>
+
+      <form v-on:submit.prevent="handleSubmit()">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+      <div>
+        <h1>LOGIN FIELD</h1>
+        <div class="form-group">
+          <label>Tài khoản:</label>
+          <input type="text" class="form-control" v-on:keyup.enter="handleLogin">
+        </div>
+        <div class="form-group">
+          <label>Mật khẩu:</label>
+          <input type="password" class="form-control" @keyup.enter="handleLogin()">
+        </div>
+      </div>
+    </section>
+
+    <section id="two-way-binding" class="bg-dark p-3 rounded text-center text-light m-3">
+      <h2>Two way binding</h2>
+      <div>
+        <div class="form-group">
+          <label>Message:</label>
+          <input type="text" class="form-control" v-model="message">
+        </div>
+        <div>
+          <p class="alert alert-danger">Thông tin message: {{message}}</p>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="./index.js"></script>
+</body>
+
+</html>
