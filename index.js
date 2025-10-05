@@ -148,3 +148,31 @@ Vue.createApp({
     }
   }
 }).mount("#watchers")
+
+// tổng hợp
+Vue.createApp({
+  data(){
+    return{
+      last : "Doe",
+      first : "Jane",
+      full : ""
+    }
+  },
+
+  watch : {
+    first(newValue){
+      this.full = newValue + " " + this.last;
+    },
+
+    last(newValue){
+      this.full = this.first + " " + newValue;
+    }
+  },
+
+  computed : {
+    fullname(){
+      console.log("chạy hàm fullname")
+      return this.full = this.first + " " + this.last
+    }
+  }
+}).mount("#methods-computed-watch")

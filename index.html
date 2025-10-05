@@ -105,6 +105,17 @@
       <button @click="increase()">Bấm để tăng Count</button>
     </section>
   </div>
+
+  <section id="methods-computed-watch" class="bg-dark p-3 rounded text-center text-light m-3">
+    <h2>Methods, computed properties and watchers</h2>
+    <label>Họ:</label> <br>
+    <input v-model="last"> <br>
+    <label>Tên:</label> <br>
+    <input v-model="first"> <br>
+    <br>
+    <label>Fullname dùng watchers: <p class="bg-danger text-white"> {{ full }} </p> </label> <br>
+    <label>Fullname dùng computed: <p class="bg-danger text-white"> {{ fullname }} </p> </label>
+  </section>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
