@@ -120,3 +120,31 @@ Vue.createApp({
     },
   }
 }).mount("#computed-properties-and-watchers")
+
+Vue.createApp({
+  data(){
+    return{
+      count : 0
+    }
+  },
+
+  watch : {
+    // theo như Vue, khi truyền 2 tham số vào bên trong function của watch, nó mặc định hiểu giá trị đầu tiên nó truyền vào
+    // sẽ là new value, giá trị sau đó là old value
+    // những tham số sau đó nữa sẽ là undefined (ko có giá trị)
+    count(giaTri){
+      console.log("lại tăng thêm 1")
+      console.log(giaTri)
+
+      if(giaTri === 10){
+        this.count = 0
+      }
+    }
+  },
+
+  methods : {
+    increase(){
+      return this.count += 1
+    }
+  }
+}).mount("#watchers")
