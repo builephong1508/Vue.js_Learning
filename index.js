@@ -94,3 +94,29 @@ Vue.createApp({
     }
   },
 }).mount("#two-way-binding")
+
+Vue.createApp({
+  data(){
+    return{
+      lastname : "Doe",
+      firstname : "Jane"
+    }
+  },
+  methods : {
+    getFullname(){
+      return this.firstname + " " + this.lastname
+    }
+    // tuy nhiên không nên sử dụng ở đây, vì làm giảm hiệu năng
+    // bởi vì các phương thức trong methods khi gọi 1 cái, nó sẽ chạy lại các hàm khác dù cho giá trị không đổi
+    // Thay vào đó, sử dụng thuộc tính computed. Nó sẽ không chạy lại các hàm trừ khi giá trị trong đó thay đổi
+
+    // xử lý sự kiện thì là methods
+    // tính toán dữ liệu thì dùng computed
+    // để được tối ưu
+  },
+  computed : {
+    getFullnameBetter(){
+      return this.firstname + " " + this.lastname
+    },
+  }
+}).mount("#computed-properties-and-watchers")
