@@ -37,73 +37,73 @@ Vue.createApp({
 }).mount("#methods");
 
 Vue.createApp({
-  data(){
+  data() {
     return {
-      htmlString : `<h1>Text here</h1>`
+      htmlString: `<h1>Text here</h1>`
     };
   }
 }).mount("#raw-html")
 
 Vue.createApp({
-  data(){
-    return{
-      text : ""
+  data() {
+    return {
+      text: ""
     };
   },
 
-  methods : {
-    clickButton(){
+  methods: {
+    clickButton() {
       this.text = "Hello World"
     }
   }
 }).mount("#event-handling")
 
 Vue.createApp({
-  data(){
-    return{
-      number : 0
+  data() {
+    return {
+      number: 0
     };
   },
-  methods : {
-    increase(){
+  methods: {
+    increase() {
       this.number++
     },
 
-    decrease(){
+    decrease() {
       this.number--
     },
 
-    handleSubmit(event){
+    handleSubmit(event) {
       alert("Submit nội dung thành công")
     },
 
-    handleClick(event){
+    handleClick(event) {
       console.log(event.target.innerHTML)
     },
 
-    handleLogin(){
+    handleLogin() {
       alert("Đăng nhập thành công khi enter")
     }
   }
 }).mount("#counting")
 
 Vue.createApp({
-  data(){
-    return{
-      message : ""
+  data() {
+    return {
+      message: ""
     }
   },
 }).mount("#two-way-binding")
 
 Vue.createApp({
-  data(){
-    return{
-      lastname : "Doe",
-      firstname : "Jane"
+  data() {
+    return {
+      lastname: "Doe",
+      firstname: "Jane"
     }
   },
-  methods : {
-    getFullname(){
+  methods: {
+    getFullname() {
       return this.firstname + " " + this.lastname
     }
     // tuy nhiên không nên sử dụng ở đây, vì làm giảm hiệu năng
@@ -114,36 +114,36 @@ Vue.createApp({
     // tính toán dữ liệu thì dùng computed
     // để được tối ưu
   },
-  computed : {
-    getFullnameBetter(){
+  computed: {
+    getFullnameBetter() {
       return this.firstname + " " + this.lastname
     },
   }
 }).mount("#computed-properties-and-watchers")
 
 Vue.createApp({
-  data(){
-    return{
-      count : 0
+  data() {
+    return {
+      count: 0
     }
   },
 
-  watch : {
+  watch: {
     // theo như Vue, khi truyền 2 tham số vào bên trong function của watch, nó mặc định hiểu giá trị đầu tiên nó truyền vào
     // sẽ là new value, giá trị sau đó là old value
     // những tham số sau đó nữa sẽ là undefined (ko có giá trị)
-    count(giaTri){
+    count(giaTri) {
       console.log("lại tăng thêm 1")
       console.log(giaTri)
 
-      if(giaTri === 10){
+      if (giaTri === 10) {
         this.count = 0
       }
     }
   },
 
-  methods : {
-    increase(){
+  methods: {
+    increase() {
       return this.count += 1
     }
   }
@@ -151,28 +151,50 @@ Vue.createApp({
 
 // tổng hợp
 Vue.createApp({
-  data(){
-    return{
-      last : "Doe",
-      first : "Jane",
-      full : ""
+  data() {
+    return {
+      last: "Doe",
+      first: "Jane",
+      full: ""
     }
   },
 
-  watch : {
-    first(newValue){
+  watch: {
+    first(newValue) {
       this.full = newValue + " " + this.last;
     },
 
-    last(newValue){
+    last(newValue) {
       this.full = this.first + " " + newValue;
     }
   },
 
-  computed : {
-    fullname(){
+  computed: {
+    fullname() {
       console.log("chạy hàm fullname")
       return this.full = this.first + " " + this.last
     }
   }
 }).mount("#methods-computed-watch")
+
+Vue.createApp({
+  data() {
+    return {
+      pStyle: {
+        backgroundColor: "white",
+        color: "red",
+        fontSize: "15px",
+        fontWeight: ""
+      }
+    }
+  },
+
+  methods: {
+    handleStyle() {
+      this.pStyle.backgroundColor = "purple";
+      this.pStyle.color = "orange";
+      this.pStyle.fontSize = "20px",
+        this.pStyle.fontWeight = "bolder"
+    }
+  }
+}).mount("#styling")
