@@ -209,3 +209,34 @@ Vue.createApp({
   }
 }).mount("#styling")
 
+Vue.createApp({
+  data() {
+    return {
+      isLogin: false,
+      username: "",
+      password: "",
+      name: "",
+
+      userPhong: {
+        username: "user",
+        password: "123",
+        name: "Phong"
+      }
+    }
+  },
+
+  methods: {
+    handleLogin() {
+      if (this.username === this.userPhong.username && this.password === this.userPhong.password) {
+        alert("Login successfully!")
+        this.name = this.userPhong.name
+        this.isLogin = true
+      }
+      else {
+        alert("Wrong username or password")
+        this.isLogin = false
+      }
+    }
+  }
+}).mount("#directive")
+
