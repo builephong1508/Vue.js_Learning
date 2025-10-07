@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
   <link rel="stylesheet" href="./index.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -183,6 +184,17 @@
           </div>
         </div>
       </div>
+    </section>
+
+    <section id="render-show" class="bg-dark p-3 rounded text-center text-light m-3">
+      <h2>Render Show</h2>
+      <ul class="list-unstyled text-center">
+        <li class="mb-4" v-for="(girl, index) in girlHanLiMet" :key="index">
+          <img :src="girl.imageUrl" class="rounded-circle img-fluid object-fit-cover" style="width:160px; height:160px;"
+            alt="Ảnh 1">
+          <h6 class="mt-2"> {{ index + 1 }}. {{ girl.name }} </h6>
+        </li>
+      </ul>
     </section>
 
     <script>

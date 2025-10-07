@@ -20,3 +20,5 @@ như ví dụ về so sánh 3 cái computed, watcher, methods
 xin chao branch test-confict01
 day la conflict 02
 
+
+v-if nếu không muốn dòng đó ko có trong html, còn v-show chỉ ẩn đi thôi, nó vẫn tồn tại
