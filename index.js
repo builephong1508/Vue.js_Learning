@@ -240,3 +240,17 @@ Vue.createApp({
   }
 }).mount("#directive")
 
+Vue.createApp({
+  data() {
+    return {
+      police: ""
+    }
+  },
+
+  methods: {
+    handleClick(police) {
+      this.police = police
+    }
+  }
+}).mount("#directive-p2")
+
