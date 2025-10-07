@@ -16,4 +16,7 @@ như ví dụ về so sánh 3 cái computed, watcher, methods
 -> computed  
 
 --> text conflict
+
+xin chao branch test-confict01
 day la conflict 02
+
