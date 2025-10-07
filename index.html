@@ -135,6 +135,23 @@
         </button>
       </div>
     </section>
+
+    <section id="directive" class="bg-primary p-3 rounded text-center text-light m-3">
+      <form>
+        <div class="mb-3">
+          <label class="form-label">Email address</label>
+          <input type="text" class="form-control" v-model="username">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Password</label>
+          <input type="password" class="form-control" v-model="password">
+        </div>
+        <div class="mb-3 form-check">
+          <label v-if="isLogin"> Chào mừng {{ name }} đã quay trở lại </label>
+        </div>
+        <button type="button" class="btn btn-light" @click.prevent="handleLogin">Login</button>
+      </form>
+    </section>
   </div>
 
 
