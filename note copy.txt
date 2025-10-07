@@ -15,4 +15,4 @@ như ví dụ về so sánh 3 cái computed, watcher, methods
 -> watch phù hợp để theo dõi 1 data duy nhất, perfomance tốt hơn computed
 -> computed  
 
--- text conflict 0222222
+-- text conflict 0222222 ádasdasdas
