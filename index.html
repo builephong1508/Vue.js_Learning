@@ -10,6 +10,7 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <link rel="stylesheet" href="./index.css">
 </head>
 
 <body>
@@ -125,6 +126,12 @@
         <button @click="handleStyle"
           :style="{backgroundColor: bgColor, color: color, fontSize: size + 'px', fontWeight: weight}">
           Reze Arc Style
+        </button>
+      </div>
+      <div>
+        <div class="hinh-tron" :class="{ pikachu : active }"></div>
+        <button @click="summonPikachu()" :class="['btn', active ? 'btn-warning' : 'btn-success']">
+          {{ active ? 'Recall Pikachu' : 'Summon Pikachu' }}
         </button>
       </div>
     </section>
