@@ -254,3 +254,27 @@ Vue.createApp({
   }
 }).mount("#directive-p2")
 
+Vue.createApp({
+  data() {
+    return {
+      girlHanLiMet: [
+        {
+          name: "Tử Linh",
+          imageUrl: "https://thuvienanime.net/wp-content/uploads/2023/08/tu-linh-tien-tu-new-thuvienanime-10.jpg"
+        },
+        {
+          name: "Nguyên Dao",
+          imageUrl: "https://i.pinimg.com/236x/8a/fe/2b/8afe2bed6761962397d7add56d738ce2.jpg"
+        },
+        {
+          name: "Mộ Phái Linh",
+          imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUu2UVePCyXkuIKTviIg0FBy-gSvr4cI_Z3A&s"
+        },
+        {
+          name: "Tống Ngọc",
+          imageUrl: "https://i.ytimg.com/vi/3mBEYLIxRrc/oardefault.jpg?sqp=-oaymwEYCJUDENAFSFqQAgHyq4qpAwcIARUAAIhC&rs=AOn4CLAUeMvJaxVJrP1iSFtJmAsG6bzWxw"
+        },
+      ]
+    }
+  }
+}).mount("#render-show")
