@@ -180,6 +180,9 @@ Vue.createApp({
 Vue.createApp({
   data() {
     return {
+
+      active: false,
+
       pStyle: {
         backgroundColor: "white",
         color: "red",
@@ -195,6 +198,14 @@ Vue.createApp({
       this.pStyle.color = "orange";
       this.pStyle.fontSize = "20px",
         this.pStyle.fontWeight = "bolder"
+    },
+
+    summonPikachu() {
+      if (this.active === false)
+        this.active = true
+      else
+        this.active = false
     }
   }
 }).mount("#styling")
+

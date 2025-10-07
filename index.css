@@ -1,0 +1,18 @@
+.hinh-tron {
+
+    margin: 20px auto;
+    height: 100px;
+    width: 100px;
+    background-image: url("img/ball.webp");
+    background-size: 150%;
+    /* Ảnh phủ kín div */
+    background-position: center;
+    /* Lấy chính giữa ảnh */
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.pikachu {
+    background-image: url("img/pikachu.png");
+    background-size: 150%;
+}
