@@ -152,6 +152,54 @@
         <button type="button" class="btn btn-light" @click.prevent="handleLogin">Login</button>
       </form>
     </section>
+
+    <section id="directive-p2" class="bg-dark p-3 rounded text-center text-light m-3">
+      <h2>Directive</h2>
+      <h3>Chọn cảnh sát để đánh dân</h3>
+
+      <div class="container text-center mt-3">
+        <!-- Hiển thị duy nhất 1 ảnh theo lựa chọn -->
+        <img v-if="police === 'giaothong'"
+          src="https://media.vneconomy.vn/images/upload/2021/04/20/cnah-sat-giao-thong-d9fd4.jpg"
+          class="img-fluid img-thumbnail rounded" style="height:200px;object-fit:cover;">
+        <img v-else-if="police === 'hinhsu'" src="https://i.ytimg.com/vi/jdVRQ1mG6hk/maxresdefault.jpg"
+          class="img-fluid img-thumbnail rounded" style="height:200px;object-fit:cover;">
+        <img v-else-if="police === 'chim'"
+          src="https://cdnmedia.baotintuc.vn/Upload/pTMF1jgWpbjY1m8G1xWUsg/files/2021/07/giaohang1(2).JPG"
+          class="img-fluid img-thumbnail rounded" style="height:200px;object-fit:cover;">
+        <img v-else src="https://t4.ftcdn.net/jpg/05/97/47/95/360_F_597479556_7bbQ7t4Z8k3xbAloHFHVdZIizWK1PdOo.jpg"
+          class="img-fluid img-thumbnail rounded" style="height:200px;object-fit:cover;">
+
+        <!-- Các nút chọn -->
+        <div class="row g-3 mt-3">
+          <div class="col-md-4 col-sm-6">
+            <button class="btn btn-primary w-100" @click="handleClick('giaothong')">Công An Giao Thông</button>
+          </div>
+          <div class="col-md-4 col-sm-6">
+            <button class="btn btn-primary w-100" @click="handleClick('hinhsu')">Công An Hình Sự</button>
+          </div>
+          <div class="col-md-4 col-sm-6">
+            <button class="btn btn-primary w-100" @click="handleClick('chim')">Công An Chìm</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      Vue.createApp({
+        data() {
+          return {
+            police: ""
+          }
+        },
+        methods: {
+          handleClick(police) {
+            this.police = police
+          }
+        }
+      }).mount("#directive-p2")
+    </script>
+
   </div>
 
 
