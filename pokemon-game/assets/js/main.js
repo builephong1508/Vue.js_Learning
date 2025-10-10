@@ -3,6 +3,8 @@ Vue.createApp({
         return {
             active: true,
             winStatus: false,
+            looseStatus: false,
+            numberTry: 10,
 
             pairedCards: [
 
@@ -1630,8 +1632,22 @@ Vue.createApp({
         }
     },
 
+    watch: {
+        "numberTry": function (newValue) {
+            if (newValue === 0) {
+                alert("Bạn đã thua")
+                this.handleGettingCardsToPlay()
+                this.looseStatus === true
+                this.numberTry = 10
+            }
+        }
+    },
+
     methods: {
         handleGettingCardsToPlay() {
+            this.numberTry = 10
+            this.winStatus = false
+            this.pairedCards = []
             this.selectedCards = this.cardList
                 .sort(() => 0.5 - Math.random()) // trộn ngẫu nhiên
                 .slice(0, 4); // lấy 4 phần tử đầu
@@ -1663,6 +1679,8 @@ Vue.createApp({
                     console.log("thành công")
                     this.pairedCards.push(card1)
                     this.pairedCards.push(card2)
+                } else {
+                    this.numberTry -= 1
                 }
                 setTimeout(() => {
                     this.flippedCards = []
