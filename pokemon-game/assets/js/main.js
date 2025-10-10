@@ -1,12 +1,8 @@
 Vue.createApp({
     data() {
         return {
-            active: true,
-            winStatus: false,
-            looseStatus: false,
-            numberTry: 10,
 
-            pairedCards: [
+                        pairedCards: [
 
             ],
             cardList: [
@@ -1617,6 +1613,14 @@ Vue.createApp({
             flippedCards: [
 
             ],
+
+            active: true,
+            winStatus: false,
+            looseStatus: false,
+            numberTry: 10,
+            selectDeck: 4,
+
+
         }
     },
 
@@ -1637,9 +1641,14 @@ Vue.createApp({
             if (newValue === 0) {
                 alert("Bạn đã thua")
                 this.handleGettingCardsToPlay()
-                this.looseStatus === true
+                this.looseStatus = true
                 this.numberTry = 10
             }
+        },
+
+        "selectDeck" : function(newValue){
+            alert(newValue)
+            this.handleGettingCardsToPlay()
         }
     },
 
@@ -1650,7 +1659,7 @@ Vue.createApp({
             this.pairedCards = []
             this.selectedCards = this.cardList
                 .sort(() => 0.5 - Math.random()) // trộn ngẫu nhiên
-                .slice(0, 4); // lấy 4 phần tử đầu
+                .slice(0, this.selectDeck); // lấy 4 phần tử đầu
             console.log(this.selectedCards);
 
             // dùng concat để nhân đôi các phần tử trong mảng
