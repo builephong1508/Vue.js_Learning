@@ -1,14 +1,32 @@
 <template>
   <h1>Hello Vue CLI - Command Line Interface</h1>
+  <!-- các cách gọi component lên -->
+  <FirstComponent></FirstComponent>
+  <!-- <first-component></first-component>
+  <FirstComponent/>
+  <first-component/>
+  <First-Component/>
+  <firstComponent/> -->
+  <second-component/>
+  <product-list/>
+  
 </template>
 
 <script>
 
-export default {
-  name: 'App',
-  components: {
+  import FirstComponent from './components/FirstComponent.vue';
+  import SecondComponent from './components/SecondComponent.vue';
+  import ProductList from './components/ProductList.vue';
+  
+
+  export default {
+    name: 'App',
+    components: {
+      FirstComponent,
+      SecondComponent,
+      ProductList,
+    }
   }
-}
 </script>
 
 <style>
