@@ -43,7 +43,12 @@
   </DemoSlots2>
   <hr>
   <DemoDynamicComponent/>
-
+  <hr>
+  <div id="modal-test"></div>
+    <teleport to="#modal-test">
+      <DemoModal/>
+    </teleport>
+  <hr>
 </template>
 
 <script>
@@ -54,6 +59,7 @@ import ProductList from './components/ProductList.vue';
 import DemoSlots from './components/DemoSlots.vue';
 import DemoSlots2 from './components/DemoSlots2.vue';
 import DemoDynamicComponent from './components/DemoDynamicComponent.vue';
+import DemoModal from './components/DemoModal.vue';
 
 export default {
   name: 'App',
@@ -64,6 +70,7 @@ export default {
     DemoSlots,
     DemoSlots2,
     DemoDynamicComponent,
+    DemoModal,
   },
 
   provide() {
