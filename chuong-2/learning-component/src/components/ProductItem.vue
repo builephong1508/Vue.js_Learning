@@ -1,47 +1,55 @@
 <template>
-    <!-- Cách thứ 1 -->
-  <!-- <div class="card text-left">
-        <img :src="imageUrl" alt="" class="card-img-top">
-        <div class="card-body">
-            <h4 class="card-title">{{ imageName }}</h4>
-        </div>
-    </div> -->
-
-      <div class="card text-left" v-if="imageObject">
-        <img :src="imageObject.linkAnh" alt="" class="card-img-top">
-        <div class="card-body">
-            <h4 class="card-title">{{ imageObject.tenAnh }}</h4>
-        </div>
+  <div class="card text-left" v-if="imageObject">
+    <img :src="imageObject.linkAnh" alt="" class="card-img-top" />
+    <div class="card-body">
+      <h4 class="card-title">{{ imageObject.tenAnh }}</h4>
+      <p class="card-subtitle">{{ defaultText }}</p>
+      <p class="card-subtitle">{{ validatorText }}</p>
+      <button class="btn btn-primary" @click="handleSelect(imageObject)">
+        {{ user }}
+      </button>
     </div>
-
+  </div>
 </template>
 
 <script>
 export default {
-    props : {
-        // Cách thứ 1
-        // imageUrl : {
-        //     type : String
-        // },
-        // imageName : {
-        //     type : String
-        // },
 
-        // linkAnh : {
-        //     type : String
-        // },
+  inject : ["user"],
 
-        // tenAnh : {
-        //     type : String
-        // },
-
-        imageObject : {
-            type : Object
-        }
+  methods : {
+    handleSelect(imageObject) {
+      // console.log(imageObject)
+      this.$emit("custom-handle-select", imageObject)
     }
-}
+  },
+
+  props: {
+    imageObject: {
+      type: Object,
+    },
+
+    requiredText: {
+      type: [String, Number],
+      // nếu để là false thì không báo lỗi khi không sử dụng
+      // còn để là true thì sẽ ngược lại
+      required: false,
+    },
+
+    defaultText: {
+      type: [String, Text],
+      default: "Jane Doe - Iris Out",
+    },
+
+    validatorText: {
+      type: String,
+      validator(value) {
+        if (value.length > 3) return true;
+        else return false;
+      },
+    },
+  },
+};
 </script>
 
-<style>
-
-</style>
+<style></style>
