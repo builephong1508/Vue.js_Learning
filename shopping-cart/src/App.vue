@@ -1,20 +1,31 @@
 <template>
-  <HeaderComponent />
-  <ContentComponent />
-  <FooterComponent />
+  <header>
+    <TheHeader />
+  </header>
+  
+  <main>
+    <ProductList />
+  </main>
+
+  
+
+  <footer>
+    <TheFooter />
+  </footer>
+
 </template>
 
 <script>
-import ContentComponent from './components/ContentComponent.vue';
-import FooterComponent from './components/FooterComponent.vue';
-import HeaderComponent from './components/HeaderComponent.vue';
+import ProductList from './components/ProductList.vue';
+import TheFooter from './components/TheFooter.vue';
+import TheHeader from './components/TheHeader.vue';
 
 export default {
   name: 'App',
   components: {
-    HeaderComponent,
-    ContentComponent,
-    FooterComponent,
+    TheHeader,
+    ProductList,
+    TheFooter,
   }
 }
 </script>

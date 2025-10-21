@@ -36,18 +36,86 @@
                 </form>
 
                 <!-- Cart button -->
-                <button class="btn btn-success">
+                <!-- <button class="btn btn-success">
                     <i class="bi bi-cart-fill"></i> Giỏ hàng
+                </button> -->
+                <button class="btn btn-success position-relative" @click="handleOpenCartListModal">
+                    <i class="bi bi-cart-fill"></i> Giỏ hàng
+                    <span
+                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger d-flex align-items-center justify-content-center"
+                        style="min-width: 1.4rem; height: 1.4rem; font-size: 0.8rem;">
+                        0
+                        <span class="visually-hidden">sản phẩm trong giỏ hàng</span>
+                    </span>
                 </button>
+
             </div>
         </div>
     </nav>
+
+    <AppModal :isOpen="isOpenCartListModal" :handleCloseModal="handleCloseCartListModal">
+        aaaa
+    </AppModal>
+
 </template>
 <script>
-export default {
 
+export default {
+    data() {
+        return {
+            isOpenCartListModal: false,
+        }
+    },
+
+    methods: {
+        handleOpenCartListModal() {
+            this.isOpenCartListModal = true
+        },
+
+        handleCloseCartListModal() {
+            this.isOpenCartListModal = false
+        }
+    }
 }
 </script>
-<style lang="">
+<style>
+.modal {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0.4);
+}
 
+.modal__container {
+    width: 1000px;
+    margin: auto;
+    /* margin-top: 100px; */
+    background-color: white;
+    border: 1px solid #888;
+    padding: 10px;
+}
+
+.modal__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal__close {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 30px;
+}
+
+.modal__close:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
 </style>
