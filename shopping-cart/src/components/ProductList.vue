@@ -1,6 +1,6 @@
 <template>
   <div class="container my-5">
-    <h2 class="text-center mb-5 text-danger">Sản phẩm nổi bật</h2>
+    <h2 class="text-center text-danger">Sản phẩm nổi bật</h2>
     <div class="row g-4">
       <!-- Product card -->
       <div
@@ -8,7 +8,7 @@
         :key="index"
         class="col-sm-3"
       >
-        <ProductItem :productItem="productItem" />
+        <ProductItem :productItem="productItem" @handleBuy="handleBuy" />
       </div>
     </div>
   </div>
@@ -108,6 +108,13 @@ export default {
       ],
     };
   },
+
+  methods: {
+    handleBuy(productItem) {
+      console.log(productItem)
+      this.$emit('handleBuy', productItem)
+    }
+  }
 };
 </script>
 <style></style>
