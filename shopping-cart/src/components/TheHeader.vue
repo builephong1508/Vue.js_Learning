@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-expand-lg bg-light shadow-sm">
+    <nav class="navbar navbar-expand-lg bg-light shadow-sm fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="#">
                 <i class="bi bi-shop fs-3 text-success me-2"></i> MyShop
@@ -53,14 +53,29 @@
         </div>
     </nav>
 
-    <AppModal :isOpen="isOpenCartListModal" :handleCloseModal="handleCloseCartListModal">
-        aaaa
-    </AppModal>
+    <teleport to="#app">
+        <AppModal :isOpen="isOpenCartListModal" :handleCloseModal="handleCloseCartListModal">
+            <section>
+                <CartList :cartList="cartList" @handleDeleteCartItem="handleDelete" />
+            </section>
+        </AppModal>
+    </teleport>
 
 </template>
 <script>
+import CartList from './CartList.vue';
 
 export default {
+    props: {
+        cartList: {
+            type: Array
+        }
+    },
+
+    components: {
+        CartList,
+    },
+
     data() {
         return {
             isOpenCartListModal: false,
@@ -74,11 +89,21 @@ export default {
 
         handleCloseCartListModal() {
             this.isOpenCartListModal = false
+        },
+
+        handleDelete(item) {
+            this.$emit("handleDeleteCartItem", item)
         }
     }
 }
 </script>
 <style>
+.navbar {
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
 .modal {
     position: fixed;
     z-index: 1;
@@ -102,6 +127,10 @@ export default {
 .modal__header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+
+.modal__title {
     align-items: center;
 }
 
